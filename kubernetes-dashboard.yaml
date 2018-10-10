@@ -163,17 +163,14 @@ spec:
 
 ---
 
-kind: Service
-apiVersion: v1
+apiVersion: extensions/v1beta1
+kind: Ingress
 metadata:
   labels:
     k8s-app: kubernetes-dashboard
-  name: kubernetes-dashboard-external
+  name: kubernetes-dashboard-ingress
   namespace: kube-system
 spec:
-  ports:
-    - port: 443
-      targetPort: 18443
-  selector:
-    k8s-app: kubernetes-dashboard
-  type: LoadBalancer
+  backend:
+    serviceName: kubernetes-dashboard
+    servicePort: 8443
