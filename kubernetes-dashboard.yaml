@@ -161,6 +161,8 @@ spec:
   selector:
     k8s-app: kubernetes-dashboard
 
+---
+
 kind: Service
 apiVersion: v1
 metadata:
